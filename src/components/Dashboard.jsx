@@ -77,7 +77,7 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-            <ResponsiveContainer width="100%" height={270}>
+            <ResponsiveContainer width="100%" height={150}>
               <LineChart data={ticketsCreatedData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                 <XAxis dataKey="month" stroke="#9CA3AF" />
@@ -97,7 +97,7 @@ const Dashboard = () => {
             <div className="chart-header">
               <div className="chart-title">First Reply vs Full Resolve Time</div>
             </div>
-            <ResponsiveContainer width="100%" height={270}>
+            <ResponsiveContainer width="100%" height={150}>
               <LineChart data={ticketsCreatedData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                 <XAxis dataKey="month" stroke="#9CA3AF" />
@@ -121,7 +121,7 @@ const Dashboard = () => {
             <div className="chart-header">
               <div className="chart-title">Tickets By Type</div>
             </div>
-            <ResponsiveContainer width="100%" height={270}>
+            <ResponsiveContainer width="100%" height={150}>
               <PieChart>
                 <Pie
                   data={ticketTypesData}
@@ -129,7 +129,7 @@ const Dashboard = () => {
                   cy="50%"
                   labelLine={false}
                   label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                  outerRadius={80}
+                  outerRadius={50}
                   fill="#8884d8"
                   dataKey="value"
                 >
@@ -160,14 +160,14 @@ const Dashboard = () => {
             <div className="chart-header">
               <div className="chart-title">New Tickets vs Returned Tickets</div>
             </div>
-            <ResponsiveContainer width="100%" height={270}>
+            <ResponsiveContainer width="100%" height={150}>
               <PieChart>
                 <Pie
                   data={[{ name: 'New Tickets', value: 38 }, { name: 'Returned Tickets', value: 62 }]}
                   cx="50%"
                   cy="50%"
-                  innerRadius={60}
-                  outerRadius={80}
+                  innerRadius={35}
+                  outerRadius={50}
                   fill="#8884d8"
                   paddingAngle={5}
                   dataKey="value"
@@ -196,6 +196,45 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
+
+          <div className="chart-card">
+            <div className="chart-header">
+              <div className="chart-title">Tickets By Type</div>
+            </div>
+            <ResponsiveContainer width="100%" height={150}>
+              <PieChart>
+                <Pie
+                  data={ticketTypesData}
+                  cx="50%"
+                  cy="50%"
+                  labelLine={false}
+                  label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                  outerRadius={50}
+                  fill="#8884d8"
+                  dataKey="value"
+                >
+                  {ticketTypesData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                </Pie>
+                <Tooltip 
+                  contentStyle={{ backgroundColor: '#1e1b2e', border: '1px solid #374151', borderRadius: '8px'}}
+                  labelStyle={{ color: '#af9c9c' }}
+                  itemStyle={{ color: '#60a5fa' }}
+                />
+              </PieChart>
+            </ResponsiveContainer>
+            <div className="chart-footer">
+              <div className="legend-list">
+                {ticketTypesData.map((entry, index) => (
+                  <div key={`legend-${index}`} className="legend-item">
+                    <div className="legend-color" style={{ backgroundColor: COLORS[index % COLORS.length] }}></div>
+                    <span>{entry.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="chart-block">
@@ -203,7 +242,7 @@ const Dashboard = () => {
             <div className="chart-header">
               <div className="chart-title">Number of Tickets / Week Day</div>
             </div>
-            <ResponsiveContainer width="100%" height={270}>
+            <ResponsiveContainer width="100%" height={150}>
               <BarChart data={weekDaysData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                 <XAxis dataKey="day" stroke="#9CA3AF" />
