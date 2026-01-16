@@ -1,0 +1,121 @@
+.sidebar {
+  width: 280px;
+  background-color: #1e1b2e;
+  color: #ffffff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-section {
+  margin-bottom: 40px;
+}
+
+.logo-section h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.menu-item-wrapper {
+  margin-bottom: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.menu-item {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: transparent;
+  width: 100%;
+  text-align: left;
+  border: none;
+  color: #ffffff;
+}
+
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  user-select: none;
+}
+
+.menu-title i {
+  width: 20px;
+  text-align: center;
+  margin-right: 12px;
+}
+
+.menu-title i.fa-chevron-down {
+  margin-left: auto;
+  margin-right: 0;
+  transition: transform 0.3s ease;
+}
+
+.menu-title i.fa-chevron-down.rotated {
+  transform: rotate(180deg);
+}
+
+.menu-item.active {
+  background-color: rgba(138, 43, 226, 0.2);
+  border-left: 4px solid #8a2be2;
+  padding-left: 12px;
+}
+
+.sub-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 0;
+  padding: 0 10px 10px 32px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sub-menu-item {
+  font-size: 14px;
+  color: #a0a0a0;
+  padding: 6px 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative;
+  text-decoration: none;
+}
+
+.sub-menu-item:hover {
+  color: #ffffff;
+  padding-left: 8px;
+}
+
+.sub-menu-item:hover::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: #8a2be2;
+  border-radius: 50%;
+}
