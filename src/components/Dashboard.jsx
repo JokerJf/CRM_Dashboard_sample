@@ -138,8 +138,9 @@ const Dashboard = () => {
                   ))}
                 </Pie>
                 <Tooltip 
-                  contentStyle={{ backgroundColor: '#1e1b2e', border: '1px solid #374151', borderRadius: '8px' }}
-                  labelStyle={{ color: '#9CA3AF' }}
+                  contentStyle={{ backgroundColor: '#1e1b2e', border: '1px solid #374151', borderRadius: '8px'}}
+                  labelStyle={{ color: '#af9c9c' }}
+                  itemStyle={{ color: '#60a5fa' }}
                 />
               </PieChart>
             </ResponsiveContainer>
@@ -178,6 +179,7 @@ const Dashboard = () => {
                 <Tooltip 
                   contentStyle={{ backgroundColor: '#1e1b2e', border: '1px solid #374151', borderRadius: '8px' }}
                   labelStyle={{ color: '#9CA3AF' }}
+                  itemStyle={{ color: '#60a5fa' }}
                 />
               </PieChart>
             </ResponsiveContainer>
